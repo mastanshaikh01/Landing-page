@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #4d5bf9;
+    --dark-color: #333;
+    --light-color: #f8f9fa;
+    --transition: all 0.3s ease;
+}
+
+body {
+    min-height: 300vh; /* To allow scrolling */
+    background-color: var(--light-color);
+}
+
+/* Navbar styles */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+/* Scrolled navbar styles (will be applied via JS) */
+#navbar.scrolled {
+    background-color: var(--dark-color);
+    padding: 15px 5%;
+}
+
+#navbar.scrolled .logo a,
+#navbar.scrolled .nav-links li a {
+    color: white;
+}
+
+#navbar.scrolled .nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+/* Logo styles */
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links li a {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+/* Hover effect for navigation links */
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Active class for current section */
+.nav-links li a.active {
+    color: var(--primary-color);
+}
+
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+/* Content sections styling */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.section:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+.section:nth-child(even) {
+    background-color: white;
+}
+
+.section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.section p {
+    font-size: 18px;
+    max-width: 800px;
+    color: #666;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #navbar {
+        padding: 15px 5%;
+    }
+    
+    .logo a {
+        font-size: 22px;
+    }
+    
+    .nav-links li {
+        margin-left: 20px;
+    }
+    
+    .nav-links li a {
+        font-size: 16px;
+    }
+    
+    .section h1 {
+        font-size: 36px;
+    }
+    
+    .section p {
+        font-size: 16px;
+    }
+} 
